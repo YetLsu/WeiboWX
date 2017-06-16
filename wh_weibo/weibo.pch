@@ -1,0 +1,50 @@
+//
+//  weibo.pch
+//  wh_weibo
+//
+//  Created by 玩火的萌娃 on 15/10/14.
+//  Copyright (c) 2015年 玩火的萌娃. All rights reserved.
+//
+
+#ifndef wh_weibo_weibo_pch
+#define wh_weibo_weibo_pch
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+//依赖控制算坐标
+#import "UIViewExt.h"
+#import "ThemeManeger.h"
+//主题通知名字
+#define KThemeNameDidChangeAction @"KThemeNameDidChangeAction"
+
+//取出浏览图片模式对应的图片的高,以后这种宏替换如果有表达式，那么一定要用括号括起来
+#define KLookImageHeight ([[[NSUserDefaults standardUserDefaults] objectForKey:KimageScale] integerValue]==0?80 : 200)
+
+//如果取出来的KimageScale 是 0,那么就用默认的80，如果不是0，那就用 KLookImageWidth(w)里面的W
+#define KLookImageWidth(w) ([[[NSUserDefaults standardUserDefaults] objectForKey:KimageScale] integerValue]==0?80 : (w))
+
+//保存图片浏览模式对应的行
+#define KimageScale @"KimageScale"
+
+//设置Button的图片
+#import "UIButton+WebCache.h"
+#import "UIImageView+WebCache.h"
+//保存动画相关的Key
+#define KDrawLeftType @"KDrawLeftType" //左动画效果
+#define KDrawRightType @"KDrawRightType"//右动画效果
+
+#define KDrawAnimationType @"KDrawAnimationType"
+
+#import "SinaWeibo.h"
+#import "AppDelegate.h"
+//订制当前屏幕的物理尺寸
+#define KscreenWidth [UIScreen mainScreen].bounds.size.width
+#define KscreenHeight [UIScreen mainScreen].bounds.size.height
+
+//认证需要的配置参数
+#define KAppKey @"986215153"
+#define KRedirectURL @"http://www.baidu.com"
+#define KAppSecretKey @"36563f9946f7045effecea4bb33259f0"
+
+
+#endif

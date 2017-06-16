@@ -7,11 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MenuViewController.h"
+@protocol GetData <NSObject>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+-(void)getData;
+
+@end
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate,SinaWeiboDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (nonatomic,strong) SinaWeibo *sinaweibo;
+
+@property (nonatomic,assign) id <GetData> delegate;
 
 @end
 
